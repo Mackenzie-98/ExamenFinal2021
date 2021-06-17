@@ -28,9 +28,11 @@ public class UsuarioController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("submit");
 		switch(action) {
-			case "login":validarLogin(request, response);
-			case "redirectRegistrar":request.getRequestDispatcher("registrar_usuario.jsp").forward(request, response);
-			case "registrar":registrarUsuario(request, response);
+			case "login":validarLogin(request, response);break;
+			case "redirectRegistrar":request.getRequestDispatcher("registrar_usuario.jsp").forward(request, response);break;
+			case "redirectTypedb":request.getRequestDispatcher("registrar_typedb.jsp").forward(request, response);break;
+			case "redirectToken":request.getRequestDispatcher("registrar_token.jsp").forward(request, response);break;
+			case "registrar":registrarUsuario(request, response);break;
 		}
 	}
 	
@@ -39,7 +41,7 @@ public class UsuarioController extends HttpServlet {
 		String password = request.getParameter("password");
 		Usuario found = userDao.findByUsername(username);
 		if(found!=null&&found.getPass().equals(password) && found.getState()==1) {
-			request.getRequestDispatcher("usuario.jsp").forward(request, response);
+			request.getRequestDispatcher("menu.jsp").forward(request, response);
 		}else {
 			PrintWriter pw=response.getWriter();
 			pw.write("<h1> Usuario no registrado en el sistema.</h1>");
