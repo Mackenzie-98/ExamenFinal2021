@@ -26,7 +26,7 @@ public class Conexion<T> {
 	
 	public static EntityManager getEm(){
 		if ( em == null ) {
-			EntityManagerFactory emf = Persistence.createEntityManagerFactory("Reportes");
+			EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistencia");
             em = emf.createEntityManager();
         }
 		return em;
@@ -65,7 +65,7 @@ public class Conexion<T> {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			//em.close();
+			em.close();
 		}
 		
 	}
@@ -78,7 +78,7 @@ public class Conexion<T> {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			//em.close();
+			em.close();
 		}
 		
 	}

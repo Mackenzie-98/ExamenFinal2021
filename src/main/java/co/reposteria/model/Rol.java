@@ -28,7 +28,7 @@ public class Rol implements Serializable {
 	@Column(name = "descripcion")
 	private String descripcion;
 	
-	@OneToMany(mappedBy = "role",cascade = CascadeType.MERGE)
+	@OneToMany(mappedBy = "role")
 	private List<Usuario> usuarios;
 
 	public Rol() {
@@ -62,8 +62,5 @@ public class Rol implements Serializable {
 	@Override
 	public String toString() {
 		return "Rol [id=" + id + ", descripcion=" + descripcion + ", usuarios=" + usuarios + "]";
-	}
-	
-	
-	
+	}	
 }
