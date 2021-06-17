@@ -26,6 +26,9 @@ public class Typedb implements Serializable {
 	private String description;
 	
 	@Column(name = "driver")
+	private String driver;
+	
+	@Column(name = "aditional")
 	private String aditional;
 	
 	@OneToMany(mappedBy = "type")

@@ -65,7 +65,7 @@ public class Conexion<T> {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			em.close();
+			//em.close();
 		}
 		
 	}
@@ -78,7 +78,7 @@ public class Conexion<T> {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			em.close();
+			//em.close();
 		}
 		
 	}
