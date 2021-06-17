@@ -41,7 +41,9 @@
 							}
 							%>
 						</select> 
+						
 					</div>
+					
 
 					<input type="text" name="usuario" placeholder="Username" required /> 
 					<input type="text" name="email" placeholder="Email" required /> 

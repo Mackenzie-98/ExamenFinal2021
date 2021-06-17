@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/UsuarioController")
+@WebServlet( urlPatterns = { "/UsuarioController", "/Reportes/UsuarioController"})
 public class UsuarioController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     UsuarioDao userDao;
@@ -21,6 +21,7 @@ public class UsuarioController extends HttpServlet {
         super();
         userDao=new UsuarioDao();
     }
+    
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
@@ -29,6 +30,7 @@ public class UsuarioController extends HttpServlet {
 		String action = request.getParameter("submit");
 		switch(action) {
 			case "login":validarLogin(request, response);break;
+			case "logout":request.getRequestDispatcher("index.jsp").forward(request, response);break;
 			case "redirectRegistrar":request.getRequestDispatcher("registrar_usuario.jsp").forward(request, response);break;
 			case "redirectTypedb":request.getRequestDispatcher("registrar_typedb.jsp").forward(request, response);break;
 			case "redirectToken":request.getRequestDispatcher("registrar_token.jsp").forward(request, response);break;

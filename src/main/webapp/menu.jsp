@@ -18,6 +18,7 @@
 					<h2 class="col-12 fs-title">Menú principal</h2>
 					<button type="submit" id="btn-registrarTypedb" name="submit" class="col-12 next action-button" value="redirectTypedb" />Registrar tipo de base de datos</button>
 					<button type="submit" id="btn-registrarToken" name="submit" class="col-12 next action-button" value="redirectToken" />Registrar token</button>
+					<button type="submit" id="btn-registrarToken" name="submit" class="col-12 next action-button" value="logout" />Cerrar sesión</button>
 					</form>
 			</div>
 		</div>

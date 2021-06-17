@@ -13,7 +13,7 @@ import co.reposteria.model.Typedb;
 /**
  * Servlet implementation class TypedbController
  */
-@WebServlet("/TypedbController")
+@WebServlet(urlPatterns = { "/TypedbController", "/Reportes/TypedbController"})
 public class TypedbController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	TypedbDao tpDao;
