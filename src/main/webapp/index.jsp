@@ -20,14 +20,19 @@
                 <form action="<%=request.getContextPath()%>/UsuarioController" method="post">
                 <input type="text" id="login" class="fadeIn second" name="username" placeholder="username">
                 <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">
-                <button type="submit" class="btn btn-custom btn-lg btn-block mt-3" id="btn-login" name = "submit" value = "login">Login</button>
+                <button type="submit" class="next action-button" name = "submit" value="login">Login</button>
+                <button type="submit" class="next action-button" name = "submit" value = "redirectRegistrar">Registrarse</button>
                 </form>
                 </div>
-        
             </div>
      </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+	<script src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js"
+		type="text/javascript"></script>
+	<script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js"
+		type="text/javascript"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

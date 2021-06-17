@@ -17,12 +17,12 @@ public class UsuarioDao extends Conexion<Usuario>implements GenericDao<Usuario>{
 	public UsuarioDao() {
 		super(Usuario.class);
 	}
-	public Usuario findByUser(String user){
+	public Usuario findByUsername(String username){
 		try {
 			getEm().getTransaction().begin();
 			List<Usuario> lista=list();
 			for(Usuario cur:lista) {
-				if(cur.getUsuario().equals(user)) return cur;
+				if(cur.getUsuario().equals(username)) return cur;
 			}
 			getEm().getTransaction().commit();
 		} catch (Exception e) {
@@ -31,13 +31,5 @@ public class UsuarioDao extends Conexion<Usuario>implements GenericDao<Usuario>{
 			//getEm().close();
 		}
 		return null;
-	}
-	public boolean validarUsuario(Usuario u){
-		Usuario user = this.find(u.getUsuario());
-		if(user != null)
-			if (user.getPass().contentEquals(u.getPass())){
-				return true;
-			}
-		return false;
 	}
 }

@@ -59,6 +59,14 @@ public class Usuario implements Serializable {
 		this.state = state;
 	}
 	
+	public Usuario(String usuario, String email, String pass, Rol rol, Integer state) {
+		this.usuario = usuario;
+		this.email = email;
+		this.pass = pass;
+		this.role = rol;
+		this.state = state;
+	}
+	
 	public Integer getId() {
 		return id;
 	}

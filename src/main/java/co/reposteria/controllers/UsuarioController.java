@@ -26,21 +26,34 @@ public class UsuarioController extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String action = request.getParameter("submit").toString();
+		String action = request.getParameter("submit");
 		switch(action) {
 			case "login":validarLogin(request, response);
+			case "redirectRegistrar":request.getRequestDispatcher("registrar_usuario.jsp").forward(request, response);
+			case "registrar":registrarUsuario(request, response);
 		}
 	}
 	
 	public void validarLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		Usuario found = userDao.findByUser(username);
-		if(found!=null&&found.getPass().equals(password)) {
+		Usuario found = userDao.findByUsername(username);
+		if(found!=null&&found.getPass().equals(password) && found.getState()==1) {
 			request.getRequestDispatcher("usuario.jsp").forward(request, response);
 		}else {
 			PrintWriter pw=response.getWriter();
 			pw.write("<h1> Usuario no registrado en el sistema.</h1>");
 		}
+	}
+	
+	public void registrarUsuario(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RolDao rd=new RolDao();
+		Rol rol = rd.find(Integer.parseInt(request.getParameter("rol")));
+		String username = request.getParameter("usuario");
+		String email = request.getParameter("email");
+		String password = request.getParameter("pass");
+		Usuario nuevo = new Usuario(username,email,password,rol,1);
+		userDao.insert(nuevo);
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 }
